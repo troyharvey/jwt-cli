@@ -1,6 +1,6 @@
 {
   "name": "jwt-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Decode a JWT (JSON Web Token)",
   "repository" : {
     "type" : "git",
@@ -16,6 +16,13 @@
     "jsonwebtoken": "^5.0.5",
     "moment": "^2.10.6"
   },
+  "keywords": [
+      "jwt",
+      "json",
+      "decode",
+      "json-web-token",
+      "base64"
+  ],
   "author": "Troy Harvey <troyharvey@gmail.com>",
   "license": "ISC"
 }
