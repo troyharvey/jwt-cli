@@ -16,9 +16,6 @@
     "jsonwebtoken": "^5.0.5",
     "moment": "^2.10.6"
   },
-  "scripts": {
-    "postinstall": "echo \"⌾⌾ One jot or one tittle. ⌾⌾ \n\nUsage:\njwt [encoded token]\""
-  },
   "author": "Troy Harvey <troyharvey@gmail.com>",
   "license": "ISC"
 }
