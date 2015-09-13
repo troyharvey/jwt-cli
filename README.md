@@ -2,7 +2,7 @@
 
 `jwt` is an npm package for decoding [JSON Web Tokens](http://jwt.io/) (JWT) and the Unix timestamps within their bowels.
 
-## ✻ Installation
+### ✻ Installation
 
 ```
 npm install -g jwt-cli
@@ -10,7 +10,7 @@ npm install -g jwt-cli
 
 ![](checkitout.gif)
 
-## ✻ Usage
+### ✻ Usage
 
 ```
 $ jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDAsImV4cCI6MTQwNzAxOTYyOSwianRpIjoiaWQxMjM0NTYiLCJ0eXAiOiJodHRwczpcL1wvZXhhbXBsZS5jb21cL3JlZ2lzdGVyIiwidGVzdC10eXBlIjoiZm9vIn0.UGLFIRACaHpGGIDEEv-4IIdLfCGXT62X1vYx7keNMyc
