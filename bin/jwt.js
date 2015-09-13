@@ -14,7 +14,7 @@ var token = {
 };
 
 if (token.string === undefined || token.string.split('.').length !== 3) {
-    console.log('jwt-cli version 1.0.2\n');
+    console.log('jwt-cli version 1.0.3\n');
     console.log(colors.yellow('Usage:'));
     console.log(' jwt [encoded token]');
     return;
