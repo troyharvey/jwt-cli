@@ -1,0 +1,20 @@
+{
+  "name": "jwt-cli",
+  "version": "1.0.1",
+  "description": "Decode a JWT (JSON Web Token)",
+  "main": "jwt.js",
+  "bin": {
+    "jwt": "bin/jwt.js"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "format-json": "^1.0.3",
+    "jsonwebtoken": "^5.0.5",
+    "moment": "^2.10.6"
+  },
+  "scripts": {
+    "postinstall": "echo \"⌾⌾ One jot or one tittle. ⌾⌾ \n\nUsage:\njwt [encoded token]\""
+  },
+  "author": "Troy Harvey <troyharvey@gmail.com>",
+  "license": "ISC"
+}
