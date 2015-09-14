@@ -1,4 +1,4 @@
-# jwt
+# jwt-cli
 
 ```sh
 npm install -g jwt-cli
@@ -38,3 +38,5 @@ $ jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZ
 
 ✻ Signature UGLFIRACaHpGGIDEEv-4IIdLfCGXT62X1vYx7keNMyc
 ```
+
+<a href="http://jwt.io">![](https://cdn.auth0.com/badges/jwt-compatible.svg)</a>
