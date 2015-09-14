@@ -1,6 +1,6 @@
 {
   "name": "jwt-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Decode a JWT (JSON Web Token)",
   "repository" : {
     "type" : "git",
