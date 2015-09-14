@@ -6,7 +6,9 @@ npm install -g jwt-cli
 
 ![](checkitout.gif)
 
-`jwt` is an npm package for decoding [JSON Web Tokens](http://jwt.io/) (JWT) and the Unix timestamps within their bowels.
+## What is this?
+
+`jwt` is an npm CLI program for decoding [JSON Web Tokens](http://jwt.io/) (JWT) and the Unix timestamps within their bowels.
 
 ## Usage
 

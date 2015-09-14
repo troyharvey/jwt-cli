@@ -1,7 +1,7 @@
 {
   "name": "jwt-cli",
   "version": "1.0.5",
-  "description": "Decode a JWT (JSON Web Token)",
+  "description": "CLI program for decoding JSON Web Tokens (JWT)",
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/troyharvey/jwt-cli.git"
