@@ -28,6 +28,7 @@ if (token.decoded === null) {
     return;
 }
 
+console.log(colors.yellow('\nTo verify on jwt.io:'));
 console.log(
     '\n' +
     colors.red('http://jwt.io/#id_token=') +
