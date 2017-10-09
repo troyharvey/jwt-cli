@@ -30,7 +30,7 @@ if (token.decoded === null) {
 
 console.log(
     '\n' +
-    colors.red('http://jwt.io/#id_token=') +
+    colors.red('https://jwt.io/#id_token=') +
     colors.green(token.parts[0]) + '.' +
     colors.yellow(token.parts[1]) + '.' +
     colors.red(token.parts[2])
