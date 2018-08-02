@@ -12,7 +12,9 @@ function niceDate(unixTimestamp) {
 function processToken(token) {
     if (token.string === undefined || token.string.split('.').length !== 3) {
         console.log('jwt-cli - JSON Web Token parser [version 1.1.0]\n');
-        console.log(colors.yellow('Usage: jwt <encoded token>'));
+        console.info(colors.yellow('Usage: jwt <encoded token>\n'));
+        console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
+        console.log('⚠ Issue tracker: https://github.com/troyharvey/jwt-cli/issues');
         return;
     }
 
@@ -26,14 +28,14 @@ function processToken(token) {
 
     console.log(
         '\n' +
-        colors.red('http://jwt.io/#id_token=') +
-        colors.green(token.parts[0]) + '.' +
+        colors.magenta('http://jwt.io/#id_token=') +
+        colors.cyan(token.parts[0]) + '.' +
         colors.yellow(token.parts[1]) + '.' +
-        colors.red(token.parts[2])
+        colors.magenta(token.parts[2])
     );
 
-    console.log(colors.green('\n✻ Header'));
-    console.log(colors.green(json.plain(token.decoded.header)));
+    console.log(colors.cyan('\n✻ Header'));
+    console.log(colors.cyan(json.plain(token.decoded.header)));
 
     console.log(colors.yellow('\n✻ Payload'));
     console.log(colors.yellow(json.plain(token.decoded.payload)));
@@ -42,7 +44,7 @@ function processToken(token) {
     console.log(colors.yellow('   nbf: ') + niceDate(token.decoded.payload.nbf));
     console.log(colors.yellow('   exp: ') + niceDate(token.decoded.payload.exp));
 
-    console.log(colors.red('\n✻ Signature ' + token.decoded.signature));
+    console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
 }
 
 var token = {};
