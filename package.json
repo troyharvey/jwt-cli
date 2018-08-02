@@ -1,27 +1,27 @@
 {
   "name": "jwt-cli",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "CLI program for decoding JSON Web Tokens (JWT)",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/troyharvey/jwt-cli.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/troyharvey/jwt-cli.git"
   },
   "main": "jwt.js",
   "bin": {
     "jwt": "bin/jwt.js"
   },
   "dependencies": {
-    "colors": "^1.1.2",
-    "format-json": "^1.0.3",
-    "jsonwebtoken": "^5.0.5",
-    "moment": "^2.10.6"
+    "colors": "1.x",
+    "format-json": "1.x",
+    "jsonwebtoken": "8.x",
+    "moment": "2.x"
   },
   "keywords": [
-      "jwt",
-      "json",
-      "decode",
-      "json-web-token",
-      "base64"
+    "jwt",
+    "json",
+    "decode",
+    "json-web-token",
+    "base64"
   ],
   "author": "Troy Harvey <troyharvey@gmail.com>",
   "license": "ISC"
