@@ -9,34 +9,10 @@ function niceDate(unixTimestamp) {
     return colors.yellow(unixTimestamp) + " " + date.toLocaleString();
 }
 
-var token = {};
-
-if (process.stdin.isTTY) {
-    token['string'] = process.argv[2];
-    processToken(token);
-}
-else {
-    var data = '';
-    process.stdin.on('readable', function() {
-      var chunk;
-      while (chunk = process.stdin.read()) {
-          data += chunk;
-      }
-    });
-
-    process.stdin.on('end', function () {
-        // There will be a trailing \n from the user hitting enter. Get rid of it.
-        data = data.replace(/\n$/, '');
-        token['string'] = data;
-        processToken(token);
-    });
-}
-
 function processToken(token) {
     if (token.string === undefined || token.string.split('.').length !== 3) {
-        console.log('jwt-cli version 1.0.5\n');
-        console.log(colors.yellow('Usage:'));
-        console.log(' jwt [encoded token]');
+        console.log('jwt-cli - JSON Web Token parser [version 1.1.0]\n');
+        console.log(colors.yellow('Usage: jwt <encoded token>'));
         return;
     }
 
@@ -67,4 +43,27 @@ function processToken(token) {
     console.log(colors.yellow('   exp: ') + niceDate(token.decoded.payload.exp));
 
     console.log(colors.red('\n✻ Signature ' + token.decoded.signature));
+}
+
+var token = {};
+
+if (process.stdin.isTTY) {
+    token['string'] = process.argv[2];
+    processToken(token);
+}
+else {
+    var data = '';
+    process.stdin.on('readable', function() {
+      var chunk;
+      while (chunk = process.stdin.read()) {
+          data += chunk;
+      }
+    });
+
+    process.stdin.on('end', function () {
+        // There will be a trailing \n from the user hitting enter. Get rid of it.
+        data = data.replace(/\n$/, '');
+        token['string'] = data;
+        processToken(token);
+    });
 }
