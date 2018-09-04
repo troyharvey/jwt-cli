@@ -41,7 +41,9 @@ function processToken(token) {
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
     ['iat', 'nbf', 'exp'].forEach(field => {
-        console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
+        if (token.decoded.payload[field] !== undefined) {
+            console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
+        }
     });
 
     console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
