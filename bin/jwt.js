@@ -40,9 +40,9 @@ function processToken(token) {
     console.log(colors.yellow('\n✻ Payload'));
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
-    console.log(colors.yellow('   iat: ') + niceDate(token.decoded.payload.iat));
-    console.log(colors.yellow('   nbf: ') + niceDate(token.decoded.payload.nbf));
-    console.log(colors.yellow('   exp: ') + niceDate(token.decoded.payload.exp));
+    ['iat', 'nbf', 'exp'].forEach(field => {
+        console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
+    });
 
     console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
 }
