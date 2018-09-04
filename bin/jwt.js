@@ -5,8 +5,13 @@ var json = require('format-json');
 var jwt = require('jsonwebtoken');
 
 function niceDate(unixTimestamp) {
-    var date = new Date(unixTimestamp * 1000);
-    return colors.yellow(unixTimestamp) + " " + date.toLocaleString();
+    var dateString;
+    if (typeof unixTimestamp === 'number' && !isNaN(unixTimestamp)) {
+        dateString = new Date(unixTimestamp * 1000).toLocaleString();
+    } else {
+        dateString = "Invalid Date";
+    }
+    return colors.yellow(unixTimestamp) + " " + dateString;
 }
 
 function processToken(token) {
