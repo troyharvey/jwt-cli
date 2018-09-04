@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-var colors = require('colors');
+var colors = require('colors/safe');
 var json = require('format-json');
 var jwt = require('jsonwebtoken');
 
