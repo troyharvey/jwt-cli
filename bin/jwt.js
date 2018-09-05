@@ -5,8 +5,13 @@ var json = require('format-json');
 var jwt = require('jsonwebtoken');
 
 function niceDate(unixTimestamp) {
-    var date = new Date(unixTimestamp * 1000);
-    return colors.yellow(unixTimestamp) + " " + date.toLocaleString();
+    var dateString;
+    if (typeof unixTimestamp === 'number' && !isNaN(unixTimestamp)) {
+        dateString = new Date(unixTimestamp * 1000).toLocaleString();
+    } else {
+        dateString = "Invalid Date";
+    }
+    return colors.yellow(unixTimestamp) + " " + dateString;
 }
 
 function processToken(token) {
@@ -41,9 +46,11 @@ function processToken(token) {
     console.log(colors.yellow('\n✻ Payload'));
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
-    console.log(colors.yellow('   iat: ') + niceDate(token.decoded.payload.iat));
-    console.log(colors.yellow('   nbf: ') + niceDate(token.decoded.payload.nbf));
-    console.log(colors.yellow('   exp: ') + niceDate(token.decoded.payload.exp));
+    ['iat', 'nbf', 'exp'].forEach(field => {
+        if (token.decoded.payload[field] !== undefined) {
+            console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
+        }
+    });
 
     console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
 }
