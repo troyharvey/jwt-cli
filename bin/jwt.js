@@ -26,9 +26,10 @@ function processToken(token) {
         return;
     }
 
+    console.log(colors.yellow('\nTo verify on jwt.io:'));
     console.log(
         '\n' +
-        colors.magenta('http://jwt.io/#id_token=') +
+        colors.magenta('https://jwt.io/#id_token=') +
         colors.cyan(token.parts[0]) + '.' +
         colors.yellow(token.parts[1]) + '.' +
         colors.magenta(token.parts[2])
