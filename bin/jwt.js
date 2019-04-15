@@ -47,7 +47,7 @@ function processToken(token) {
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
     ['iat', 'nbf', 'exp'].forEach(field => {
-        if (token.decoded.payload[field] !== undefined) {
+        if (token.decoded.payload.hasOwnProperty(field)) {
             console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
         }
     });
