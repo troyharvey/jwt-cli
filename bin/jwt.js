@@ -16,7 +16,8 @@ function niceDate(unixTimestamp) {
 
 function processToken(token) {
     if (token.string === undefined || token.string.split('.').length !== 3) {
-        console.log('jwt-cli - JSON Web Token parser [version 1.1.0]\n');
+        let pkg = require('../package.json');
+        console.log(`jwt-cli - JSON Web Token parser [version ${pkg.version}]\n`);
         console.info(colors.yellow('Usage: jwt <encoded token>\n'));
         console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
         console.log('⚠ Issue tracker: https://github.com/troyharvey/jwt-cli/issues');
@@ -47,7 +48,7 @@ function processToken(token) {
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
     ['iat', 'nbf', 'exp'].forEach(field => {
-        if (token.decoded.payload[field] !== undefined) {
+        if (token.decoded.payload.hasOwnProperty(field)) {
             console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
         }
     });
