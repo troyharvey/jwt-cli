@@ -47,11 +47,12 @@ function processToken(token) {
     console.log(colors.yellow('\n✻ Payload'));
     console.log(colors.yellow(json.plain(token.decoded.payload)));
 
-    ['iat', 'nbf', 'exp'].forEach(field => {
+    const dates = {'iat': 'Issued At', 'nbf': 'Not Before', 'exp': 'Expiration Time'}
+    for (const [field, name] of Object.entries(dates)) {
         if (token.decoded.payload.hasOwnProperty(field)) {
-            console.log(colors.yellow(`   ${field}: `) + niceDate(token.decoded.payload[field]));
+            console.log(colors.yellow(`   ${name}: `) + niceDate(token.decoded.payload[field]));
         }
-    });
+    }
 
     console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
 }
