@@ -1,5 +1,8 @@
 # jwt-cli
 
+[![npm (tag)](https://img.shields.io/npm/v/jwt-cli/latest.svg)](https://www.npmjs.com/package/jwt-cli)
+[![npm](https://img.shields.io/npm/dt/jwt-cli.svg)](https://www.npmjs.com/package/jwt-cli)
+
 ```sh
 npm install -g jwt-cli
 ```
