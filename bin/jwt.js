@@ -61,9 +61,9 @@ function processToken(token) {
 function verifyToken(token, secret) {
     try {
         jwt.verify(token.string, secret);
-        console.log(colors.green('\nSignature Verified!'));
+        console.log(colors.green('\n✻ Signature Verified!'));
     } catch(err) {
-        console.log(colors.red('\nInvalid Signature!'));
+        console.log(colors.red('\n✻ Invalid Signature!'));
     }
 }
 
