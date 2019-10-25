@@ -29,7 +29,7 @@ function processToken(token) {
 
     if (token.decoded === null) {
         console.log('\n😾  token no good');
-        return;
+        return false;
     }
 
     console.log(colors.yellow('\nTo verify on jwt.io:'));
@@ -55,13 +55,28 @@ function processToken(token) {
     }
 
     console.log(colors.magenta('\n✻ Signature ' + token.decoded.signature));
+    return true;
 }
+
+function verifyToken(token, secret) {
+    try {
+        jwt.verify(token.string, secret);
+        console.log(colors.green('\nSignature Verified!'));
+    } catch(err) {
+        console.log(colors.red('\nInvalid Signature!'));
+    }
+}
+
 
 var token = {};
 
 if (process.stdin.isTTY) {
     token['string'] = process.argv[2];
-    processToken(token);
+    let isValid = processToken(token);
+    if (process.argv.length > 3 && isValid) {
+        let secret = process.argv[3];
+        verifyToken(token, secret);
+    }
 }
 else {
     var data = '';
