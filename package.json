@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "colors": "1.x",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "format-json": "1.x",
     "jsonwebtoken": "8.x",
     "moment": "2.x"
@@ -24,5 +26,14 @@
     "base64"
   ],
   "author": "Troy Harvey <troyharvey@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "2.0.2"
+  }
 }

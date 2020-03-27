@@ -1,0 +1,11 @@
+{
+  "extends": ["standard", "prettier", "prettier/standard"],
+  "plugins": ["standard"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  }
+}
