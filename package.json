@@ -1,6 +1,6 @@
 {
   "name": "jwt-cli",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "CLI program for decoding JSON Web Tokens (JWT)",
   "repository": {
     "type": "git",
