@@ -16,6 +16,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "format-json": "1.x",
     "jsonwebtoken": "8.x",
+    "minimist": "^1.2.5",
     "moment": "2.x"
   },
   "keywords": [

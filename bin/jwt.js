@@ -3,6 +3,7 @@
 var colors = require('colors/safe');
 var json = require('format-json');
 var jwt = require('jsonwebtoken');
+var parseArgs = require('minimist');
 
 function niceDate(unixTimestamp) {
   var dateString;
@@ -18,7 +19,9 @@ function processToken(token) {
   if (token.string === undefined || token.string.split('.').length !== 3) {
     const pkg = require('../package.json');
     console.log(`jwt-cli - JSON Web Token parser [version ${pkg.version}]\n`);
-    console.info(colors.yellow('Usage: jwt <encoded token>\n'));
+    console.info(
+      colors.yellow('Usage: jwt <encoded token> --secret=<signing secret>\n')
+    );
     console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
     console.log(
       '⚠ Issue tracker: https://github.com/troyharvey/jwt-cli/issues'
@@ -73,16 +76,16 @@ function verifyToken(token, secret) {
   }
 }
 
-var token = {};
-
-if (process.stdin.isTTY) {
-  token.string = process.argv[2];
-  const isValid = processToken(token);
-  if (process.argv.length > 3 && isValid) {
-    const secret = process.argv[3];
-    verifyToken(token, secret);
+function handleTokenAsAnArg() {
+  const argv = parseArgs(process.argv.slice(2));
+  token.string = argv._[0];
+  token.isValid = processToken(token);
+  if (token.isValid && argv.secret) {
+    verifyToken(token, argv.secret);
   }
-} else {
+}
+
+function handleTokenAsStdin() {
   var data = '';
   process.stdin.on('readable', function () {
     var chunk;
@@ -97,4 +100,12 @@ if (process.stdin.isTTY) {
     token.string = data;
     processToken(token);
   });
+}
+
+var token = {};
+
+if (process.stdin.isTTY) {
+  handleTokenAsAnArg();
+} else {
+  handleTokenAsStdin();
 }
