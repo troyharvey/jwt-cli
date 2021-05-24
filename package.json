@@ -2,22 +2,22 @@
   "name": "jwt-cli",
   "version": "1.2.3",
   "description": "CLI program for decoding JSON Web Tokens (JWT)",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/troyharvey/jwt-cli.git"
   },
-  "main": "jwt.js",
+  "main": "index.js",
   "bin": {
-    "jwt": "bin/jwt.js"
+    "jwt": "src/index.js"
   },
   "scripts": {
     "lint": "npx prettier --write bin/*"
   },
   "dependencies": {
-    "colors": "1.x",
+    "chalk": "4.x",
     "format-json": "1.x",
-    "jsonwebtoken": "8.x",
-    "minimist": "1.x"
+    "jsonwebtoken": "8.x"
   },
   "keywords": [
     "jwt",
