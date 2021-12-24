@@ -47,4 +47,19 @@ $ jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZ
 ✻ Signature UGLFIRACaHpGGIDEEv-4IIdLfCGXT62X1vYx7keNMyc
 ```
 
+### Output modes
+There are two output modes:
+1. `full` (default), like the example above
+2. `json`, for a json representation of the parsed input
+
+The `json` output mode can be useful when piping with `jq`.
+Continuing with the same input as above, here's an example:
+```sh
+pbpaste | jwt --mode json | jq .payload.iat
+```
+output would be
+```
+1356999524
+```
+
 <a href="http://jwt.io">![](https://cdn.auth0.com/badges/jwt-compatible.svg)</a>
