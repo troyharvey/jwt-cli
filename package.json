@@ -25,5 +25,9 @@
     "base64"
   ],
   "author": "Troy Harvey <troyharvey@gmail.com>",
+  "contributors": [{
+    "name": "Ron Klein",
+    "email": "i.am.ron.klein+npm@gmail.com"
+  }],
   "license": "MIT"
 }
