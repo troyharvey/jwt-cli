@@ -24,7 +24,7 @@ function processToken(token, outputMode) {
     const pkg = require('../package.json');
     console.log(`jwt-cli - JSON Web Token parser [version ${pkg.version}]\n`);
     console.info(
-      colors.yellow('Usage: jwt <encoded token> --secret=<signing secret> --mode=<full (default)|json>\n')
+      colors.yellow('Usage: jwt <encoded token> --secret=<signing secret> --output=<full (default)|json>\n')
     );
     console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
     console.log(
@@ -88,7 +88,7 @@ function verifyToken(token, secret) {
 function handleTokenAsAnArg() {
   const argv = parseArgs(process.argv.slice(2));
   token.string = argv._[0];
-  token.isValid = processToken(token, argv.mode);
+  token.isValid = processToken(token, argv.output);
   if (token.isValid && argv.secret) {
     verifyToken(token, argv.secret);
   }
@@ -109,7 +109,7 @@ function handleTokenAsStdin() {
     data = data.replace(/\r$/, ''); // support also Windows OS
     token.string = data;
     const argv = parseArgs(process.argv.slice(2));
-    token.isValid = processToken(token, argv.mode);
+    token.isValid = processToken(token, argv.output);
     if (token.isValid && argv.secret) {
       verifyToken(token, argv.secret);
     }
