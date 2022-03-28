@@ -11,7 +11,7 @@
     "jwt": "bin/jwt.js"
   },
   "dependencies": {
-    "colors": "1.x",
+    "colors": "1.4.0",
     "format-json": "1.x",
     "jsonwebtoken": "8.x",
     "minimist": "1.x",
