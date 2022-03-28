@@ -15,12 +15,16 @@ function niceDate(unixTimestamp) {
   return colors.yellow(unixTimestamp) + ' ' + dateString;
 }
 
-function processToken(token) {
+function processToken(token, outputMode) {
+  if (outputMode === undefined) {
+    outputMode = 'full';
+  }
+  outputMode = outputMode.toLowerCase();
   if (token.string === undefined || token.string.split('.').length !== 3) {
     const pkg = require('../package.json');
     console.log(`jwt-cli - JSON Web Token parser [version ${pkg.version}]\n`);
     console.info(
-      colors.yellow('Usage: jwt <encoded token> --secret=<signing secret>\n')
+      colors.yellow('Usage: jwt <encoded token> --secret=<signing secret> --output=<full (default)|json>\n')
     );
     console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
     console.log(
@@ -35,6 +39,11 @@ function processToken(token) {
   if (token.decoded === null) {
     console.log('\n😾  token no good');
     return false;
+  }
+
+  if (outputMode === 'json') {
+    console.log(JSON.stringify(token.decoded));
+    return true;
   }
 
   console.log(colors.yellow('\nTo verify on jwt.io:'));
@@ -79,7 +88,7 @@ function verifyToken(token, secret) {
 function handleTokenAsAnArg() {
   const argv = parseArgs(process.argv.slice(2));
   token.string = argv._[0];
-  token.isValid = processToken(token);
+  token.isValid = processToken(token, argv.output);
   if (token.isValid && argv.secret) {
     verifyToken(token, argv.secret);
   }
@@ -97,8 +106,13 @@ function handleTokenAsStdin() {
   process.stdin.on('end', function () {
     // There will be a trailing \n from the user hitting enter. Get rid of it.
     data = data.replace(/\n$/, '');
+    data = data.replace(/\r$/, ''); // support also Windows OS
     token.string = data;
-    processToken(token);
+    const argv = parseArgs(process.argv.slice(2));
+    token.isValid = processToken(token, argv.output);
+    if (token.isValid && argv.secret) {
+      verifyToken(token, argv.secret);
+    }
   });
 }
 
