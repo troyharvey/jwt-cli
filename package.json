@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fast-jwt": "^1.5.1"
+    "fast-jwt": "^1.5.1",
+    "minimist": "^1.2.6"
   }
 }
