@@ -8,7 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
+    "chalk": "^5.0.1",
     "fast-jwt": "^1.5.1",
     "minimist": "^1.2.6"
   }
