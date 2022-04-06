@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "prettier": "npx prettier --write ."
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "fast-jwt": "^1.5.1",
     "minimist": "^1.2.6"
+  },
+  "devDependencies": {
+    "jest": "^28.0.0-alpha.7",
+    "prettier": "2.6.2"
   }
 }
