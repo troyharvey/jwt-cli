@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "prettier": "npx prettier --write ."
+    "test": "jest --silent --collectCoverage",
+    "prettier": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
