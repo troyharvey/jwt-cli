@@ -8,6 +8,8 @@ function niceDate(unixTimestamp, locale, options) {
   if (typeof unixTimestamp === "number" && !isNaN(unixTimestamp)) {
     return new Date(unixTimestamp * 1000).toLocaleString(locale, options);
   }
+
+  return undefined;
 }
 
 function outputHeader(header) {
