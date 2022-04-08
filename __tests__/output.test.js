@@ -6,7 +6,7 @@ const {
   outputSignature,
   outputTokenAsJson,
   outputJwtIoLink,
-  outputNicePayloadDates
+  outputNicePayloadDates,
 } = require("../src/output.js");
 
 test("turn a jwt timestamp into a formatted date", () => {
@@ -97,7 +97,7 @@ test("output nice payload dates", () => {
   });
   expect(consoleSpy).toHaveBeenCalledTimes(3);
   outputNicePayloadDates({
-    iat: 1356999524
+    iat: 1356999524,
   });
   expect(consoleSpy).toHaveBeenCalledTimes(4);
   outputNicePayloadDates({
