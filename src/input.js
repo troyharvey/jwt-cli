@@ -8,7 +8,7 @@ async function pipedToken(readable) {
   return token;
 }
 
-async function getToken() {
+async function getToken(process) {
   if (process.stdin.isTTY) {
     var argv = parseArgs(process.argv.slice(2));
     return argv["_"][0];
@@ -25,4 +25,5 @@ function getArgument(key) {
 module.exports = {
   getToken,
   getArgument,
+  pipedToken,
 };

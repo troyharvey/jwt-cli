@@ -11,7 +11,7 @@ const { getToken, getArgument } = require("./src/input.js");
 const { decodeToken } = require("./src/jwt.js");
 
 (async () => {
-  const token = await getToken();
+  const token = await getToken(process);
   const secret = getArgument("secret");
   const output = getArgument("output");
   const decodedToken = decodeToken(token, secret);
