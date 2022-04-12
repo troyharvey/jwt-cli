@@ -18,7 +18,7 @@ npm install -g jwt-cli
 There are two ways to parse a jwt. Copy the jwt to your clipboard and pipe it into the `jwt` command, or paste it as an argument.
 
 1. `pbpaste | jwt`
-2. `jwt <encoded token> --secret=<optional signing secret>`--output=json
+2. `jwt <encoded token> --secret=<optional signing secret> --output=json`
 
 ```sh
 $ jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiaWF0IjoxMzU2OTk5NTI0LCJuYmYiOjEzNTcwMDAwMDAsImV4cCI6MTQwNzAxOTYyOSwianRpIjoiaWQxMjM0NTYiLCJ0eXAiOiJodHRwczpcL1wvZXhhbXBsZS5jb21cL3JlZ2lzdGVyIiwidGVzdC10eXBlIjoiZm9vIn0.UGLFIRACaHpGGIDEEv-4IIdLfCGXT62X1vYx7keNMyc
