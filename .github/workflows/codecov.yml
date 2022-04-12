@@ -1,4 +1,4 @@
-name: tests
+name: codecov
 
 on:
   push:
@@ -11,27 +11,15 @@ on:
       - main
 
 jobs:
-  run-tests:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 17.x]
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm install --include-dev
 
-      - name: Run the tests
+      - name: Run tests
         run: npm test
 
       - name: Upload coverage to Codecov
