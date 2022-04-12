@@ -1,12 +1,14 @@
 const {
   niceDate,
   outputHeader,
-  outputPayload,
-  prettyJson,
-  outputSignature,
-  outputTokenAsJson,
+  outputHelp,
   outputJwtIoLink,
   outputNicePayloadDates,
+  outputPayload,
+  outputSignature,
+  outputTokenAsJson,
+  outputVersion,
+  prettyJson,
 } = require("../src/output.js");
 
 test("turn a jwt timestamp into a formatted date", () => {
@@ -108,5 +110,19 @@ test("output nice payload dates", () => {
     exp: 1407019629,
   });
   expect(consoleSpy).toHaveBeenCalledTimes(6);
+  consoleSpy.mockRestore();
+});
+
+test("output help", () => {
+  const consoleSpy = jest.spyOn(console, "log");
+  outputHelp();
+  expect(consoleSpy).toHaveBeenCalledTimes(4);
+  consoleSpy.mockRestore();
+});
+
+test("output version", () => {
+  const consoleSpy = jest.spyOn(console, "log");
+  outputVersion();
+  expect(consoleSpy).toHaveBeenCalledTimes(1);
   consoleSpy.mockRestore();
 });

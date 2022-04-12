@@ -1,5 +1,9 @@
 const { decodeToken } = require("../src/jwt.js");
 
+test("decode an undefined token", () => {
+  expect(decodeToken(undefined)).toStrictEqual(undefined);
+});
+
 test("decode a jwt token", () => {
   expect(
     decodeToken(
