@@ -12,7 +12,9 @@ const {
 } = require("../src/output.js");
 
 test("turn a jwt timestamp into a formatted date", () => {
-  expect(niceDate(1407019629, "en-US")).toBe("8/2/2014, 6:47:09 PM");
+  expect(niceDate(1407019629, "en-US", { timeZone: "UTC" })).toBe(
+    "8/2/2014, 10:47:09 PM"
+  );
 });
 
 test("nice date is not a date", () => {
