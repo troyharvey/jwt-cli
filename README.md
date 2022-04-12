@@ -1,5 +1,7 @@
 # jwt-cli
 
+[![tests](https://github.com/troyharvey/jwt-cli/actions/workflows/codecov.yml/badge.svg)](https://github.com/troyharvey/jwt-cli/actions)
+[![codecov](https://codecov.io/gh/troyharvey/jwt-cli/branch/main/graph/badge.svg?token=TU861V5K46)](https://codecov.io/gh/troyharvey/jwt-cli)
 [![npm (tag)](https://img.shields.io/npm/v/jwt-cli/latest.svg)](https://www.npmjs.com/package/jwt-cli)
 [![npm](https://img.shields.io/npm/dt/jwt-cli.svg)](https://www.npmjs.com/package/jwt-cli)
 
