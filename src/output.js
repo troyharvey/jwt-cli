@@ -66,17 +66,17 @@ function outputNicePayloadDates(payload) {
 function outputHelp() {
   console.log("jwt-cli - JSON Web Token parser\n");
   console.log(
-    chalk.yellow('Usage: jwt <encoded token> --secret=<optional signing secret> --output=json\n')
+    chalk.yellow(
+      "Usage: jwt <encoded token> --secret=<optional signing secret> --output=json\n"
+    )
   );
-  console.log('ℹ Documentation: https://www.npmjs.com/package/jwt-cli');
-  console.log(
-    '⚠ Issue tracker: https://github.com/troyharvey/jwt-cli/issues'
-  );
+  console.log("ℹ Documentation: https://www.npmjs.com/package/jwt-cli");
+  console.log("⚠ Issue tracker: https://github.com/troyharvey/jwt-cli/issues");
   return;
 }
 
 function outputVersion() {
-  const pkg = require('../package.json');
+  const pkg = require("../package.json");
   console.log(pkg.version);
 }
 
