@@ -1,6 +1,6 @@
 # jwt-cli
 
-[![tests](https://github.com/troyharvey/jwt-cli/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/troyharvey/jwt-cli/actions/workflows/tests.yml)
+[![tests](https://github.com/troyharvey/jwt-cli/actions/workflows/tests/badge.svg?branch=main)](https://github.com/troyharvey/jwt-cli/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/troyharvey/jwt-cli/branch/main/graph/badge.svg?token=EAVDQDdFTJ)](https://codecov.io/gh/troyharvey/jwt-cli)
 [![npm (tag)](https://img.shields.io/npm/v/jwt-cli/latest.svg)](https://www.npmjs.com/package/jwt-cli)
 [![npm](https://img.shields.io/npm/dt/jwt-cli.svg)](https://www.npmjs.com/package/jwt-cli)
