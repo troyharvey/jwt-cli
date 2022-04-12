@@ -122,7 +122,7 @@ test("output help", () => {
   consoleSpy.mockRestore();
 });
 
-test("output version", () => {
+test("output jwt-cli version", () => {
   const consoleSpy = jest.spyOn(console, "log");
   outputVersion();
   expect(consoleSpy).toHaveBeenCalledTimes(1);
