@@ -2,7 +2,7 @@
 
 1. Install dependencies.
 
-   npm install
+   bun install
 
 1. Run jwt-cli.
 
