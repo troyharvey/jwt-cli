@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
-    "fast-jwt": "^1.5.1",
+    "fast-jwt": "^3.3.2",
     "minimist": "^1.2.6"
   },
   "devDependencies": {
