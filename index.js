@@ -8,19 +8,20 @@ const {
   outputPayload,
   outputSignature,
   outputTokenAsJson,
+  outputTokenAsEncoded,
   outputVersion,
 } = require("./src/output.js");
 
-const { getToken, getArgument } = require("./src/input.js");
-const { decodeToken } = require("./src/jwt.js");
+const { getToken, getArgument, getCommand } = require("./src/input.js");
+const { decodeToken, encodeToken } = require("./src/jwt.js");
 
 (async () => {
   const token = await getToken(process);
   const secret = getArgument("secret");
   const output = getArgument("output");
   const versionFlag = getArgument("version");
+  const verboseFlag = getArgument("verbose");
   const helpFlag = getArgument("help");
-  const decodedToken = decodeToken(token, secret);
 
   if (versionFlag) {
     outputVersion();
@@ -32,9 +33,24 @@ const { decodeToken } = require("./src/jwt.js");
     process.exit(0);
   }
 
+  const command = getCommand();
+  switch (command) {
+    case "encode":
+      let header = getArgument("header");
+      let body = getArgument("body");
+      outputTokenAsEncoded(encodeToken(header, body, secret, { verboseFlag }));
+      break;
+    case "decode":
+      decode(token, secret, output);
+      break;
+  }
+})();
+
+function decode(token, secret, output) {
+  const decodedToken = decodeToken(token, secret);
   if (token === undefined) {
     process.exit(1);
-  } else if (output == "json") {
+  } else if (output === "json") {
     outputTokenAsJson(decodedToken);
   } else {
     outputJwtIoLink(token);
@@ -43,4 +59,4 @@ const { decodeToken } = require("./src/jwt.js");
     outputNicePayloadDates(decodedToken.payload);
     outputSignature(decodedToken.signature);
   }
-})();
+}

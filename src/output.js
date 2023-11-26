@@ -30,6 +30,10 @@ function outputTokenAsJson(decodedToken) {
   process.stdout.write(JSON.stringify(decodedToken, null, 2));
 }
 
+function outputTokenAsEncoded(encodedToken) {
+  process.stdout.write(encodedToken);
+}
+
 function outputJwtIoLink(token) {
   const parts = token.split(".");
   console.log(chalk.yellow("\nTo verify on jwt.io:\n"));
@@ -67,7 +71,9 @@ function outputHelp() {
   console.log("jwt-cli - JSON Web Token parser\n");
   console.log(
     chalk.yellow(
-      "Usage: jwt <encoded token> --secret=<optional signing secret> --output=json\n"
+      "Usage: jwt <encoded token> --secret=<optional signing secret> --output=json\n" +
+        "\n" +
+        "Usage: jwt encode --verbose --header.alg HS256 --secret=<optional signing secret>\n"
     )
   );
   console.log("ℹ Documentation: https://www.npmjs.com/package/jwt-cli");
@@ -89,6 +95,7 @@ module.exports = {
   outputPayload,
   outputSignature,
   outputTokenAsJson,
+  outputTokenAsEncoded,
   outputVersion,
   prettyJson,
 };

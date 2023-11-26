@@ -22,8 +22,20 @@ function getArgument(key) {
   return argv[key];
 }
 
+const validCommands = { encode: true, decode: true };
+
+/**
+ * @return {'encode' | 'decode'}
+ */
+function getCommand() {
+  let positional = parseArgs(process.argv.slice(2))._;
+  let command = positional.shift();
+  return validCommands[command] ? command : "decode";
+}
+
 module.exports = {
   getToken,
   getArgument,
+  getCommand,
   pipedToken,
 };
