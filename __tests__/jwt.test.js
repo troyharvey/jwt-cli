@@ -96,3 +96,31 @@ test("encode a jwt with any default algo (HS/RS/EC) with secret as input", () =>
     decodeToken(token, secret);
   });
 });
+
+test("encoding fails when no or bad header or algo", () => {
+  expect(() => encodeToken(null)).toThrow();
+  expect(() => encodeToken({})).toThrow();
+  expect(() => encodeToken({ alg: 1 })).toThrow();
+  expect(() => encodeToken({ alg: "1" })).toThrow();
+});
+
+test("printing the generated public key", () => {
+  const originalLog = console.log;
+  const invocations = [];
+  console.log = function () {
+    invocations.push(arguments);
+  };
+
+  const verb = { verboseFlag: true };
+  try {
+    encodeToken({ alg: "RS256" });
+    expect(invocations.length).toBe(0);
+    encodeToken({ alg: "RS256" }, {}, null, verb);
+    expect(invocations.length).toBe(1);
+    expect(invocations[0]["0"]).toContain(
+      "printing generated key because verbose mode is selected"
+    );
+  } finally {
+    console.log = originalLog;
+  }
+});

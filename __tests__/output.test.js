@@ -7,6 +7,7 @@ const {
   outputPayload,
   outputSignature,
   outputTokenAsJson,
+  outputTokenAsEncoded,
   outputVersion,
   prettyJson,
 } = require("../src/output.js");
@@ -79,6 +80,13 @@ test("output token as json", () => {
     signature: "UGLFIRACaHpGGIDEEv-4IIdLfCGXT62X1vYx7keNMyc",
   };
   outputTokenAsJson(token);
+  expect(stdoutWrite).toHaveBeenCalled();
+  stdoutWrite.mockRestore();
+});
+
+test("output token as encoded", () => {
+  const stdoutWrite = jest.spyOn(process.stdout, "write");
+  outputTokenAsEncoded('');
   expect(stdoutWrite).toHaveBeenCalled();
   stdoutWrite.mockRestore();
 });
